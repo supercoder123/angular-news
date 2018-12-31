@@ -1,0 +1,21 @@
+.card {
+    margin:10px;
+    max-width: 900px;
+  }
+  
+  .header-image {
+    background-size: cover;
+    background-color: grey;
+  }
+  .title-link{
+    text-decoration: none;
+    color:black;
+    font-size: 27px;
+  }
+  .card-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top:65px;
+  }

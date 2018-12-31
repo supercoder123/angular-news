@@ -1,0 +1,22 @@
+
+mat-sidenav{
+  width:250px;
+}
+.sources{
+  font-size: 20px;
+  padding-left: 30px;
+  margin: 5px 0;
+}
+.sources-header{
+  background-color:#b7abab;
+  color: white;
+  padding: 10px 30px;
+  font-size: 26px;
+}
+.drawer-icon{
+  cursor: pointer;
+}
+mat-toolbar{
+    position: fixed;
+    z-index: 1;
+}
