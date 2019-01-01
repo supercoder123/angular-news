@@ -9,8 +9,8 @@ import { NewsListComponent } from './components/news-list/news-list.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'news-app';
   public sources:News[] = [];
+  public sourceIdValue:string = "";
   public sourceNameValue:string = "";
   @ViewChild(NewsListComponent) newsListChild:NewsListComponent;
 
@@ -35,9 +35,16 @@ export class AppComponent {
     });
   }
 
-  setSourceValue(value){
-    this.sourceNameValue = value;
-    this.newsListChild.getNewsBySource(value);
+  setSourceValue(sourceId, sourceName){
+    this.sourceIdValue = sourceId;
+    this.sourceNameValue = sourceName;
+    this.newsListChild.getNewsBySource(sourceId);
+    window.scrollTo(0,0);
+  }
+
+  getHeadlines(){
+    this.newsListChild.showTopHeadlines();
+    this.sourceNameValue = "";
   }
 
   getRandomColor(){

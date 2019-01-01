@@ -4,7 +4,9 @@
         [fixedInViewport] ="true"
         >
             <div class="sources-header">Sources</div>
-            <div class="sources" matRipple (click)="setSourceValue(source.id)" *ngFor="let source of sources">
+            <div class="sources" matRipple 
+            (click)="setSourceValue(source.id, source.name);sidenav.toggle();" 
+            *ngFor="let source of sources">
             <div class="source-thumbnail" [style.background-color]="source.color" >{{source.name | slice:0:1 }}</div>
                 {{source.name}}
             </div>
@@ -12,14 +14,21 @@
         
         <mat-sidenav-content>
                 <mat-toolbar color="primary">
+                        
                         <button mat-button (click)="sidenav.toggle()">
                             <mat-icon class="drawer-icon">dehaze</mat-icon> 
                         </button>
-                        &nbsp;News 
+                        &nbsp;{{sourceNameValue ? sourceNameValue : "Top Headlines (India)"}} 
+                        
+                        <span class="spacer"></span>
+                        
+                        <button mat-button (click)="getHeadlines()" >
+                            <mat-icon  class="drawer-icon">home</mat-icon> 
+                        </button> 
                 </mat-toolbar>
 
 
-                <app-news-list [sourceName]="sourceNameValue"></app-news-list>
+                <app-news-list [sourceName]="sourceIdValue"></app-news-list>
 
             </mat-sidenav-content>
 </mat-sidenav-container>
