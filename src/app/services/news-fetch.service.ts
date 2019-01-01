@@ -12,11 +12,11 @@ import { Observable } from 'rxjs';
 export class NewsFetchService {
   private apiKey = environment.apiKey;
   public  headlineUrl = `https://newsapi.org/v2/top-headlines?apiKey=${this.apiKey}&country=in`; 
-  public sourcesUrl = `https://newsapi.org/v2/sources?apiKey=${this.apiKey}`;
-
+  public sourcesUrl = `https://newsapi.org/v2/sources?apiKey=${this.apiKey}&language=en`;
+  public singleSourceUrl;
   constructor(private http:HttpClient) { }
 
-  getTopHeadlines(){
+  getTopHeadlines(source=""){
     return this.http.get(this.headlineUrl);
   }
 
@@ -24,4 +24,8 @@ export class NewsFetchService {
     return this.http.get(this.sourcesUrl);
   }
 
+  getHeadlinesSingleSource(source){
+    this.singleSourceUrl = `https://newsapi.org/v2/top-headlines?apiKey=${this.apiKey}&sources=${source}`;
+    return this.http.get(this.singleSourceUrl);
+  }
 }

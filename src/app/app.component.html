@@ -1,10 +1,13 @@
 <mat-sidenav-container>
 
-        <mat-sidenav #sidenav mode="push"
+        <mat-sidenav #sidenav
         [fixedInViewport] ="true"
         >
             <div class="sources-header">Sources</div>
-            <div class="sources" matRipple *ngFor="let source of sources">{{source.name}}</div>
+            <div class="sources" matRipple (click)="setSourceValue(source.id)" *ngFor="let source of sources">
+            <div class="source-thumbnail" [style.background-color]="source.color" >{{source.name | slice:0:1 }}</div>
+                {{source.name}}
+            </div>
         </mat-sidenav>
         
         <mat-sidenav-content>
@@ -12,9 +15,11 @@
                         <button mat-button (click)="sidenav.toggle()">
                             <mat-icon class="drawer-icon">dehaze</mat-icon> 
                         </button>
-                        &nbsp;News App
+                        &nbsp;News 
                 </mat-toolbar>
 
-                <app-news-list></app-news-list>
-        </mat-sidenav-content>
+
+                <app-news-list [sourceName]="sourceNameValue"></app-news-list>
+
+            </mat-sidenav-content>
 </mat-sidenav-container>

@@ -3,12 +3,16 @@ mat-sidenav{
   width:250px;
 }
 .sources{
+  display: flex;
+  flex-direction: row;
   font-size: 20px;
-  padding-left: 30px;
-  margin: 5px 0;
+  padding: 20px 0;
+}
+.sources:hover{
+  background-color: darkgrey;
 }
 .sources-header{
-  background-color:#b7abab;
+  background-color:#ed1b1b;
   color: white;
   padding: 10px 30px;
   font-size: 26px;
@@ -19,4 +23,15 @@ mat-sidenav{
 mat-toolbar{
     position: fixed;
     z-index: 1;
+}
+
+.source-thumbnail{
+  border-radius: 50%;
+  width: 25px;
+  text-align: center;
+  height: 25px;
+  color: white;
+  font-family: monospace;
+  font-weight: bold;
+  margin: 0 10px;
 }
