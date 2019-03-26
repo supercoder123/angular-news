@@ -12,6 +12,11 @@ export class CardListComponent implements OnInit {
 
   constructor() { }
 
+  openDetailedView(){
+    console.log("click click click ");
+    
+  }
+
   ngOnInit() {
   }
 
