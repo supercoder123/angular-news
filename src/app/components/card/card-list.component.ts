@@ -8,7 +8,7 @@ import {News} from '../../news';
 })
 export class CardListComponent implements OnInit {
 
-  @Input() posts : News[];
+  @Input() post : News[];
 
   constructor() { }
 

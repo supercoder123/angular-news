@@ -13,7 +13,7 @@ export class NewsListComponent implements OnInit {
 
   @Input() sourceName : News[];
 
-  public headlines:News[];
+  public newsItems:News[];
 
   ngOnInit() {
     this.showTopHeadlines();
@@ -21,8 +21,8 @@ export class NewsListComponent implements OnInit {
 
   showTopHeadlines(){
     this.newsList.getTopHeadlines().subscribe(data => {
-      this.headlines = data['articles'];
-      console.log(this.headlines);
+      this.newsItems = data['articles'];
+      console.log(this.newsItems);
     },err =>{
       console.log(err);
     });
@@ -32,8 +32,8 @@ export class NewsListComponent implements OnInit {
     console.log("getNewsBySource");
     
     this.newsList.getHeadlinesSingleSource(source).subscribe(data => {
-      this.headlines = data['articles'];
-      console.log(this.headlines);
+      this.newsItems = data['articles'];
+      console.log(this.newsItems);
     },err =>{
       console.log(err);
     })
