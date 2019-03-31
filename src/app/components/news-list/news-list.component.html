@@ -1,1 +1,5 @@
-<app-card-list [posts]="headlines"></app-card-list>
+<app-card-list
+  class="card-list"
+  *ngFor="let newsItem of newsItems"
+  [post]="newsItem"
+></app-card-list>
