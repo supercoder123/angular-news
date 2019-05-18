@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NewsFetchService } from '../../services/news-fetch.service'
 import { News } from '../../news';
+import { AppService } from 'src/app/services/app-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-news-list',
@@ -9,14 +11,20 @@ import { News } from '../../news';
 })
 export class NewsListComponent implements OnInit {
 
-  constructor(private newsList:NewsFetchService) { }
-
-  @Input() sourceName : News[];
-
   public newsItems:News[];
+  public sourceFromRoute;
+
+  constructor(
+    private newsList:NewsFetchService,
+    private activeRoute:ActivatedRoute
+    ){
+      this.activeRoute.params.subscribe(routeParams => {
+        this.sourceFromRoute = routeParams.sourceId;
+      });     
+    }
 
   ngOnInit() {
-    this.showTopHeadlines();
+    this.sourceFromRoute ? this.getNewsBySource(this.sourceFromRoute) : this.showTopHeadlines();    
   }
 
   showTopHeadlines(){
@@ -38,8 +46,5 @@ export class NewsListComponent implements OnInit {
       console.log(err);
     })
   }
-
-
-
 
 }

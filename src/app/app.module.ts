@@ -7,13 +7,16 @@ import { NewsListComponent } from './components/news-list/news-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule }  from './material-components/material-components.module';
-import { CardComponent } from './components/card/card.component'
+import { CardComponent } from './components/card/card.component';
+import { ArticleComponent } from './components/article/article.component'
+import { AppService } from './services/app-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsListComponent,
-    CardComponent
+    CardComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import { CardComponent } from './components/card/card.component'
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [NewsFetchService],
+  providers: [NewsFetchService, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
