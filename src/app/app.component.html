@@ -6,8 +6,12 @@
             <div class="sources-header">Sources</div>
             <div class="sources" matRipple 
             (click)="setSourceValue(source.id, source.name);sidenav.toggle();" 
-            *ngFor="let source of sources">
-            <div class="source-thumbnail" [style.background-color]="source.color" >{{source.name | slice:0:1 }}</div>
+            *ngFor="let source of sources"
+            [routerLink] = "['/'+ source.id]"
+            >
+            <div class="source-thumbnail" [style.background-color]="source.color" >
+                {{source.name | slice:0:1 }}
+            </div>
                 {{source.name}}
             </div>
         </mat-sidenav>
@@ -18,7 +22,7 @@
                         <button mat-button (click)="sidenav.toggle()">
                             <mat-icon class="drawer-icon">dehaze</mat-icon> 
                         </button>
-                        &nbsp;{{sourceNameValue ? sourceNameValue : "Top Headlines (India)"}} 
+                        &nbsp;{{sourceNameValueToolbar ? sourceNameValueToolbar : "Top Headlines (India)"}} 
                         
                         <span class="spacer"></span>
                         
@@ -27,8 +31,7 @@
                         </button> 
                 </mat-toolbar>
 
-
-                <app-news-list [sourceName]="sourceIdValue"></app-news-list>
+                <router-outlet (activate)="onRouteActivation($event)"></router-outlet>
 
             </mat-sidenav-content>
 </mat-sidenav-container>
