@@ -7,13 +7,13 @@ import { NewsListComponent } from './components/news-list/news-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule }  from './material-components/material-components.module';
-import { CardListComponent } from './components/card/card-list.component'
+import { CardComponent } from './components/card/card.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsListComponent,
-    CardListComponent
+    CardComponent
   ],
   imports: [
     BrowserModule,
